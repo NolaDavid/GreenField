@@ -1,10 +1,17 @@
-const  {Sequelize}  = require('sequelize');
+const   Sequelize = require('sequelize');
 const mysql = require('mysql2');
 
-const db = new Sequelize('maps', 'root', '', {
-  host: 'localhost',
+
+const dotenv = require('dotenv').config();
+const host = process.env.host;
+const database = process.env.database;
+const password = process.env.password;
+const username = process.env.username;
+
+
+const db = new Sequelize(database, username, password ,{
+  host: host,
   dialect:  'mysql',
-  logging: false
 });
 
 //const db = new Sequelize('mysql://localhost:3000/maps')

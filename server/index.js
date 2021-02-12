@@ -1,4 +1,4 @@
-const bcrypt =  require('bcrypt')
+
 const passport = require('passport');
 const cloudinary = require('cloudinary')
 const flash = require('express-flash')
@@ -54,17 +54,17 @@ const checkAuthenticated = (req, res, next) => {
   }
   res.redirect('/login')
 }
-const notAuthenticated = (req, res, next) => {
+// const notAuthenticated = (req, res, next) => {
   //this function checks if the user is not logged in
   //not working
   //if the user is logged in
-  if(req.isAuthenticated()){
+  // if(req.isAuthenticated()){
     //redirect to the home page
-   return res.redirect('/');
-  }
+  //  return res.redirect('/');
+  // }
   //if they are not authenticated keep going
-  next();
-}
+//   next();
+// }
 // initializePassport(passport,
 //    email => User.findOne({where: {}}),
 //   //return db query  find user => user.email === email
@@ -121,7 +121,7 @@ app.post('/markers', (req, res) => {
   });
   app.post('/comments', (req, res) => {
 
-    console.log(req.body)
+
 
 
   const{comments, description} = req.body
@@ -150,6 +150,7 @@ app.post('/markers', (req, res) => {
 
 
   app.post('/create', (req, res) => {
+
     const values = Object.values(req.files)
   const promises = values.map(image => cloudinary.uploader.upload(image.path))
 
