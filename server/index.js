@@ -35,8 +35,8 @@ app.use(flash())
 app.use(formData.parse())
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  resave: false,//should we resave if nothing changes
-  saveUninitialized: false // do we want to save empty value
+  resave: true,//should we resave if nothing changes
+  saveUninitialized: true // do we want to save empty value
 }))
 
 cloudinary.config({
