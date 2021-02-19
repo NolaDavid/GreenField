@@ -308,6 +308,6 @@ app.get('/api/account/google', passport.authenticate('google', { failureRedirect
 app.get('/', (req, res) => res.send(`Welcome ${req.user.displayName}!`))
 
 
-app.listen(80, function() {
-  console.log('listening on 80')
+app.listen(8080, function() {
+  console.log('listening on 8080')
 })
